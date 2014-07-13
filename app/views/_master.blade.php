@@ -2,7 +2,7 @@
 <html>
 <head>
 
-  <title>@yield('title', 'P3')</title>
+  <title>@yield('title', "Developer's Best Friend")</title>
 
   @yield('head')
 

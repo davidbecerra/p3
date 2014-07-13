@@ -11,7 +11,19 @@
 |
 */
 
+// Homepage
 Route::get('/', function()
 {
 	return View::make('index');
 });
+
+// Lorem-ipsum Generator
+Route::get('/lorem-ipsum', function() {
+	return View::make('ipsum');
+});
+
+// Random User Generator
+Route::get('/rand-user', function() {
+	return View::make('rand_user');
+});
+
