@@ -1,5 +1,9 @@
 @extends('_master')
 
 @section('content')
-This will be a lorem-ipsum Generator!
+<?php
+	$generator = new Badcow\LoremIpsum\Generator();
+	$paragraphs = $generator->getParagraphs(2);
+	echo implode('<p>', $paragraphs);
+?>
 @stop
