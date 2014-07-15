@@ -1,5 +1,6 @@
 @extends('_master')
 
 @section('content')
-This will be a random user Generator!
+	<a href="/">Home</a>
+	This will be a random user Generator!
 @stop

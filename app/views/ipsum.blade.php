@@ -1,9 +1,11 @@
 @extends('_master')
 
 @section('content')
-<?php
-	$generator = new Badcow\LoremIpsum\Generator();
-	$paragraphs = $generator->getParagraphs(2);
-	echo implode('<p>', $paragraphs);
-?>
+
+	<a href="/">Home</a>
+	<form method="GET" action="{{ url('/lorem-ipsum') }}">
+		Number of paragraphs: <input type="text" name='paragraphs' required> (Max 99)
+			<input type="submit" value="Submit"><br>
+	</form>
+	<?php echo $output; ?>
 @stop

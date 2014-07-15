@@ -19,7 +19,25 @@ Route::get('/', function()
 
 // Lorem-ipsum Generator
 Route::get('/lorem-ipsum', function() {
-	return View::make('ipsum');
+
+	if (!empty($_GET)) {
+		// Clean form input
+		$paragraphs = trim($_GET['paragraphs']);
+		$paragraphs = stripslashes($paragraphs);
+		$paragraphs = htmlspecialchars($paragraphs);
+
+		// // Ensure paragraphs is integer
+		if (is_numeric($paragraphs) && $paragraphs <= 99 && $paragraphs > 0) {
+			$paragraphs = (int) $paragraphs;
+			$generator = new Badcow\LoremIpsum\Generator();
+			$output = implode('<p>', $generator->getParagraphs($paragraphs));
+		}
+		else
+			$output = '';
+	}
+	else
+		$output = '';
+	return View::make('ipsum')->with('output', $output);
 });
 
 // Random User Generator
