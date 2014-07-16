@@ -31,7 +31,7 @@ Route::get('/lorem-ipsum', function() {
 		if (validate_input_number($paragraphs, 1, 99)) {
 			$paragraphs = (int) $paragraphs;
 			$generator = new Badcow\LoremIpsum\Generator();
-			$output = implode('<p>', $generator->getParagraphs($paragraphs));
+			$output = '<p>' . implode('</p><p>', $generator->getParagraphs($paragraphs)) . '</p>';
 		}
 		else
 			$output = '';

@@ -1,11 +1,27 @@
-/*h1 {
-	text-align: center;
+div#container {
 	position: relative;
-	top: 200px;
-}*/
+	text-align: center;
+}
 
-div#front-page {
-	text-align: center;
-	position: relative;
-	top: 200px;
+div#centered {
+	/*border: 1px solid black;*/
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-top: 10%;
+	min-width: 300px;
+}
+
+div#output {
+	/*position: absolute;*/
+	/*border: 1px solid black;*/
+	margin-top: 10px;
+	min-width: 300px;
+	margin-left: 10%;
+	margin-right: 10%;
+	text-align: justify;
+	/*text-indent: 40px;*/
+}
+
+p {
+	/*border: 1px solid black;*/
 }
