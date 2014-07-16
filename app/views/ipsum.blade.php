@@ -1,5 +1,10 @@
 @extends('_master')
 
+@section('title')
+	Lorem Ipsum Generator
+@stop
+
+
 @section('content')
 
 	<a href="/">Home</a>

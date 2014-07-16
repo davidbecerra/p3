@@ -1,7 +1,9 @@
 @extends('_master')
 
 @section('content')
-	<h1>Homepage</h1>
-	<a href="/lorem-ipsum">Lorem-Ipsum Generator</a> |
-	<a href="/rand-user">Random User Generator</a>
+	<div id='front-page'>
+		<h1>A Developer's Best Friend</h1>
+		<a href="/lorem-ipsum">Lorem-Ipsum Generator</a> |
+		<a href="/rand-user">Random User Generator</a>
+	</div>
 @stop
