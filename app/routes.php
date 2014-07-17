@@ -22,22 +22,19 @@ Route::get('/', function()
 
 // Lorem-ipsum Generator
 Route::get('/lorem-ipsum', function() {
+	$output = '';
 
-	if (!empty($_GET)) {
-		// Scrub form input
-		$paragraphs = clean_input($_GET['paragraphs']);
+	$paragraphs = Input::get('paragraphs', 0);
+	// Scrub form input
+	$paragraphs = clean_input($paragraphs);
 
-		// Ensure paragraphs is integer
-		if (validate_input_number($paragraphs, 1, 99)) {
-			$paragraphs = (int) $paragraphs;
-			$generator = new Badcow\LoremIpsum\Generator();
-			$output = '<p>' . implode('</p><p>', $generator->getParagraphs($paragraphs)) . '</p>';
-		}
-		else
-			$output = '';
+	// Ensure paragraphs is integer
+	if (validate_input_number($paragraphs, 1, 99)) {
+		// Generate Lorem Ipsum paragraphs
+		$paragraphs = (int) $paragraphs;
+		$generator = new Badcow\LoremIpsum\Generator();
+		$output = '<p>' . implode('</p><p>', $generator->getParagraphs($paragraphs)) . '</p>';
 	}
-	else
-		$output = '';
 	return View::make('ipsum')->with('output', $output);
 });
 
@@ -53,16 +50,10 @@ Route::get('/rand-user', function() {
 	// Scrub and validate text input
 	$num_users = clean_input($num_users);
 	if (validate_input_number($num_users, 1, 9)) {
-		$num_users = (int) $num_users;
-		$fake_user = Faker\Factory::create();
-		// Generate $num_users random users with optional features (address, bio text, etc.)
-		for ($i=0; $i < $num_users; $i++) { 
-			$output .= "<br><b>Name:</b> " . $fake_user->name . "<br>";
-			if (isset($options['addr']) && $options['addr'])
-				$output .= "<b>Address: </b>" . $fake_user->address . "<br>";
-			if (isset($options['bio']) && $options['bio'])
-				$output .= "<b>Bio: </b>" . $fake_user->text . "<br>";
-		}
+		// Create & Init. UserProcessor class to generate random users
+		$user_proc = new UserProcessor((int) $num_users);
+		$user_proc->set_options($options);
+		$output = $user_proc->generate_users();
 	}
 	return View::make('rand_user')->with('user_data', $output);
 });
