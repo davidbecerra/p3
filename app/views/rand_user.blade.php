@@ -6,13 +6,22 @@
 
 @section('content')
 	<div id='centered'>
+
 		<a href="/">Home</a>
 		<form method="GET" action="">
 			Number of Users: <input type="text" name="users" required> (Max 9)<br>
-			<input type="checkbox" name="addr"> Address<br>
-			<input type="checkbox" name="bio"> Bio<br>
-			<input type="submit" value="Submit">
+			
+			<div id="options">
+				<input type="checkbox" name="addr"> Address<br>
+				<input type="checkbox" name="bio"> Bio<br>
+				<input type="submit" value="Submit">
+			</div>
+		
 		</form>
-		<?php echo $user_data; ?>
+
+		<div id="user_output">
+			<?php echo $user_data; ?>
+		</div>
+
 	</div>
 @stop

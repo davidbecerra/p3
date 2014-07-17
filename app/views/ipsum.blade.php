@@ -15,7 +15,7 @@
 		</form>
 	</div>
 
-	<div id="output">
+	<div id="lorem_output">
 		<?php echo $output; ?>
 	</div>
 @stop

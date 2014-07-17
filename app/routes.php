@@ -57,11 +57,11 @@ Route::get('/rand-user', function() {
 		$fake_user = Faker\Factory::create();
 		// Generate $num_users random users with optional features (address, bio text, etc.)
 		for ($i=0; $i < $num_users; $i++) { 
-			$output .= $fake_user->name . "<br>";
+			$output .= "<br><b>Name:</b> " . $fake_user->name . "<br>";
 			if (isset($options['addr']) && $options['addr'])
-				$output .= $fake_user->address . "<br>";
+				$output .= "<b>Address: </b>" . $fake_user->address . "<br>";
 			if (isset($options['bio']) && $options['bio'])
-				$output .= $fake_user->text . "<br>";
+				$output .= "<b>Bio: </b>" . $fake_user->text . "<br>";
 		}
 	}
 	return View::make('rand_user')->with('user_data', $output);
