@@ -4,7 +4,7 @@
 By David Becerra
 
 ##Live URL
-http://p3-becerra.rhcloud.com
+http://p3-dbecerra.rhcloud.com
 ##Description
 This website is meant to be a toolkit for developers. It includes a Lorem Ipsum text generator and a Random User generator. The lorem ipsum generator creates 1 to 99 paragraphs of random lorem ipsum text. The Random User generator creates random user data including name, address, and a small bio/description.
 
